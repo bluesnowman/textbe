@@ -1,0 +1,22 @@
+#summary How TextBe is being released
+
+=Releasing TextBE V2=
+
+  * All development happens on mainline. There is no branching except for releases
+  * The svn has a multi-project structure
+  * There is a /p2 directory that contains the P2 repos
+
+  # Create a branch of the module with the Release number (RN)
+  # Lock the main line
+  # Set the new version on the main line
+  # Unlock the main line
+  # Switch to the branch
+  # Set the version number on
+    # plugins (major, minor, micro)
+    # features as upper limit of plugins
+    # maven build (*note*: Build number != feature number
+  # Run the build, verify results by testing (staging ok)
+  # Check-in the branch.
+  # Clean and check out again.
+  # tag the build (move branch from branches to tags)
+  # Check the repository created into P2/RN
