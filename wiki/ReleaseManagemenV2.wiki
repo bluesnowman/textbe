@@ -13,8 +13,13 @@
   # Switch to the branch
   # Set the version number on
     # plugins (major, minor, micro)
-    # features as upper limit of plugins
-    # maven build (*note*: Build number != feature number
+    # Even versions for release, odd versions for snapshot/build qualifier
+    # Features versions compute as upper limit of contained plugin versions
+    # maven build
+      # maven parent pom version is the release version
+      # repository version is identical to the parent pom version
+      # other versions are independent
+  # builds should use -Dtycho.localArtifacts=ignore to ensure insulation
   # Run the build, verify results by testing (staging ok)
   # Check-in the branch.
   # Clean and check out again.
