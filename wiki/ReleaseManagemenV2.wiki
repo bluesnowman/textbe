@@ -10,7 +10,7 @@
     # For feature builds, this will determine the version number of the repository
     # For product builds, this will determine the version number of the repository and product
   # [http://svnbook.red-bean.com/en/1.7/svn.ref.svn.c.lock.html Lock] the main line
-  # Set the new version on the main line. The version numbering follows the even odd winding rule, due to the -SNAPSHOT inconsistency between MAVEN/TYCHO and OSGI.
+  # Set the new version on the main line. The version numbering follows the even odd winding rule, due to the -SNAPSHOT inconsistency between MAVEN/TYCHO and OSGI. _Note: This should be revised for Tycho/Reproducible Version Qualifiers_
     # Release versions are even
     # Working versions are odd-SNAPSHOT (tycho) / odd.qualifier (osgi)
   # Unlock the main line
