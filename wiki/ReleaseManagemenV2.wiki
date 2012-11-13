@@ -13,8 +13,8 @@
   # Set the new version on the main line. The version numbering follows the even odd winding rule, due to the -SNAPSHOT inconsistency between MAVEN/TYCHO and OSGI. _Note: This should be revised for Tycho/Reproducible Version Qualifiers_
     # Release versions are even
     # Working versions are odd-SNAPSHOT (tycho) / odd.qualifier (osgi)
-    # Use the interactive [http://www.eclipse.org/tycho/sitedocs/tycho-release/tycho-versions-plugin/set-version-mojo.html Tycho Set Version] Mojo to set the OSGI version from the parent project.
-    # Use the interactive [http://www.eclipse.org/tycho/sitedocs/tycho-release/tycho-versions-plugin/update-pom-mojo.html Tycho Update POM] Mojo to make the POM version match the OSGI version.
+    # *Either* Use the interactive [http://www.eclipse.org/tycho/sitedocs/tycho-release/tycho-versions-plugin/set-version-mojo.html Tycho Set Version] Mojo to set the version from the parent project for all children,
+    # *or* Set the OSGI versions by hand, then use the interactive [http://www.eclipse.org/tycho/sitedocs/tycho-release/tycho-versions-plugin/update-pom-mojo.html Tycho Update POM] Mojo to make the POM version match the OSGI version.
   # Unlock the main line
   # Switch to the branch
   # Set the version number on
