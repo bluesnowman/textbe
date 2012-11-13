@@ -6,9 +6,13 @@
   * The svn has a multi-project structure
   * There is a /p2 directory that contains the P2 repos
 
-  # Create a branch of the module with the Release number (RN)
+  # Create a branch of the module with the Release number (RN). This number is the version number of the parent POM.
+    # For feature builds, this will determine the version number of the repository
+    # For product builds, this will determine the version number of the repository and product
   # [http://svnbook.red-bean.com/en/1.7/svn.ref.svn.c.lock.html Lock] the main line
-  # Set the new version on the main line
+  # Set the new version on the main line. The version numbering follows the even odd winding rule, due to the -SNAPSHOT inconsistency between MAVEN/TYCHO and OSGI.
+    # Release versions are even
+    # Working versions are odd-SNAPSHOT (tycho) / odd.qualifier (osgi)
   # Unlock the main line
   # Switch to the branch
   # Set the version number on
