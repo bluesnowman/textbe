@@ -6,3 +6,5 @@
 ||1.0.0||[http://commons.wikimedia.org/wiki/File:Tree_of_Knowledge.jpg Cranach]||
 ||1.1.0||[http://commons.wikimedia.org/wiki/File:Christian_Rohlfs_Baumst%C3%A4mme.jpg Rohlfs]||
 ||1.2.0|| [http://commons.wikimedia.org/wiki/File:Gustav_Klimt_033.jpg Klimt]||
+||1.3.0||[http://commons.wikimedia.org/wiki/File:Shishkin_na_severe_dikom1.jpg Shishkin]||
+||1.4.0||[http://commons.wikimedia.org/wiki/File:Frommel_Baumstamm_1800.jpg Frommel]||
