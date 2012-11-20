@@ -1,0 +1,17 @@
+#summary An introduction to the textBe Build
+
+= Introduction =
+
+TextBe is built
+
+  * From sources in SVN 
+  * Using Tycho
+  * On Jenkins
+  * Deploying to Nexus OSS with P2 plugin
+
+The project is split into 
+
+  * The IDE frame application
+  * User features to be installed into that frame
+
+= Features =
