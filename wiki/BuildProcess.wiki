@@ -54,4 +54,32 @@ As a result the following rule is used
 ||rt||Runtime||end-user features||none||ui,services||
 ||sources||Source Code||source code lookup||none||none||
 ||tests||Deployable tests||tests to run in test environment||test runners,target||rt||
-||sdk||Source Developer Kit||everything except tests||none|| 
+||sdk||Source Developer Kit||everything except tests||none|| ^tests ||
+
+= Process =
+
+The current process builds a repository site per module, and the product aggregates these modules. Higher modules refer to P2 sites within SVN to obtain their requirements.
+
+Tycho builds are using the tycho 0.16.0 local-dependencies:ignore setting, to avoid the build being polluted by local snapshots lying around.
+
+== Intended process ==
+
+=== Features ===
+
+The intended process involves features being built in two stages:
+
+  1. Check-out of all parts from SVN
+  2. Build in tycho/Jenkins
+  3. Deploy plugins to nexus OSS with P2
+  4. Deploy features to SVN with SVN publisher in Jenkins
+
+As part of this process, P2 dependencies can be drawn in from the local nexus.
+
+=== Top-level Repos ===
+
+There are two top-level repos:
+
+  * /updates/(release number) contains releases of the TextBE IDE itself
+  * /releases/(release name) contains releases of features to be installed into the IDE
+
+These repositories are created by collecting the individual repos of the features.
