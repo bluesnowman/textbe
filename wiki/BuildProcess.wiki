@@ -34,7 +34,14 @@ To avoid namespace collisions, certain values for project names are currently re
 ||repository||category||${projectName}.repository||
 ||repository||product||${projectName}.product||
 
+== Version Numbering ==
 
+In Maven -SNAPSHOT is a lesser version than the associated release version. In OSGI .qualifier is a greater version than the associated base version. This means that OSGI will select SNAPSHOT artifacts over RELEASE artifacts, which is not intended.
+
+As a result the following rule is used
+
+  * Even version numbers represent releases
+  * Odd version numbers represent snapshots
 
 = Features =
 
