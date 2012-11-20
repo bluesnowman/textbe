@@ -14,4 +14,28 @@ The project is split into
   * The IDE frame application
   * User features to be installed into that frame
 
+= Tycho requirements =
+
+== Shared Namespace ==
+
+Tycho uses the namespace that Maven uses. Eclipse has separate namespaces for 
+
+  * features
+  * plugins/bundles
+  * products
+  * targets
+  * ..
+
+To avoid namespace collisions, certain values for project names are currently reserved.
+
+||*Tycho Type*||*Eclipse Type*||*Names*||
+||eclipse-plugin||plugin||<basename>,<basename>.unitTest,<basename>.systemTest||
+||feature||feature||<basename>,<basename>.sdk,<basename>.rt,<basename>.ui,<basename>.sources,<basename>.tests||
+||repository||category||<basename>.repository||
+||repository||product||<basename>.product||
+
 = Features =
+
+  * Features have a base name that is used to identify them within the repository. E.g. 'bt2gv'
+  * Features are internally structured 
+  
