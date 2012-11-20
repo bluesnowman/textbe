@@ -29,10 +29,12 @@ Tycho uses the namespace that Maven uses. Eclipse has separate namespaces for
 To avoid namespace collisions, certain values for project names are currently reserved.
 
 ||*Tycho Type*||*Eclipse Type*||*Names*||
-||eclipse-plugin||plugin||<basename>,<basename>.unitTest,<basename>.systemTest||
-||feature||feature||<basename>,<basename>.sdk,<basename>.rt,<basename>.ui,<basename>.sources,<basename>.tests||
-||repository||category||<basename>.repository||
-||repository||product||<basename>.product||
+||eclipse-plugin||plugin||${projectName},${projectName}.unitTest,${projectName}.systemTest||
+||feature||feature||${projectName}.sdk,${projectName}.rt,${projectName}.ui,${projectName}.sources,${projectName}.tests||
+||repository||category||${projectName}.repository||
+||repository||product||${projectName}.product||
+
+
 
 = Features =
 
