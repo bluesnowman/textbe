@@ -29,8 +29,8 @@ Tycho uses the namespace that Maven uses. Eclipse has separate namespaces for
 To avoid namespace collisions, certain values for project names are currently reserved.
 
 ||*Tycho Type*||*Eclipse Type*||*Names*||
-||eclipse-plugin||plugin||${projectName},${projectName}.unitTest,${projectName}.systemTest||
-||feature||feature||${projectName}.sdk,${projectName}.rt,${projectName}.ui,${projectName}.sources,${projectName}.tests||
+||eclipse-plugin||plugin||${projectName},${projectName}.unitTest,${projectName}.systemTest,${projectName}.branding,${projectName}.ui.help,${projectName}.api.help||
+||feature||feature||${projectName}.sdk,${projectName}.rt,${projectName}.services,${projectName}.ui,${projectName}.sources,${projectName}.tests||
 ||repository||category||${projectName}.repository||
 ||repository||product||${projectName}.product||
 
@@ -46,5 +46,12 @@ As a result the following rule is used
 = Features =
 
   * Features have a base name that is used to identify them within the repository. E.g. 'bt2gv'
-  * Features are internally structured 
-  
+  * Features are internally structured
+
+||*extension*||*Long Name*||*provides*||*requires feature*||*includes feature*||
+||services||Services||programmatic interface||none||none||
+||ui||User Interface||interactive access||services||none||
+||rt||Runtime||end-user features||none||ui,services||
+||sources||Source Code||source code lookup||none||none||
+||tests||Deployable tests||tests to run in test environment||test runners,target||rt||
+||sdk||Source Developer Kit||everything except tests||none|| 
