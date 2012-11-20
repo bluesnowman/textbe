@@ -1,7 +1,12 @@
 #summary Guide to installing TextBE
 #sidebar TableOfContents
 
-= Installing TextBE =
+= Installing TextBE 1.0.0 =
+  
+  
+  # Install a version of the Java Runtime environment > 1.6.0 on your platform
+  # Install a version of [http://www.graphviz.org/Download.php Graphviz]
+  # Select the appropriate Version of TextBe for your platform from the downloads
 
   # Download and install [http://www.graphviz.org/Download..php Graphviz] (if not already installed).
   # Download and install [http://www.eclipse.org/downloads/packages/release/galileo/sr2 Eclipse Gallileo SR2] Modeling Tools (includes incubating projects)
