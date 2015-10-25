@@ -1,0 +1,4 @@
+# Installing Examples #
+
+  * File => New => Example ...
+  * Choose BE and then the example you would like to view

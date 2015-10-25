@@ -1,0 +1,85 @@
+# Introduction #
+
+TextBe is built
+
+  * From sources in SVN
+  * Using Tycho
+  * On Jenkins
+  * Deploying to Nexus OSS with P2 plugin
+
+The project is split into
+
+  * The IDE frame application
+  * User features to be installed into that frame
+
+# Tycho requirements #
+
+## Shared Namespace ##
+
+Tycho uses the namespace that Maven uses. Eclipse has separate namespaces for
+
+  * features
+  * plugins/bundles
+  * products
+  * targets
+  * ..
+
+To avoid namespace collisions, certain values for project names are currently reserved.
+
+|**Tycho Type**|**Eclipse Type**|**Names**|
+|:-------------|:---------------|:--------|
+|eclipse-plugin|plugin          |${projectName},${projectName}.unitTest,${projectName}.systemTest,${projectName}.branding,${projectName}.ui.help,${projectName}.api.help|
+|feature       |feature         |${projectName}.sdk,${projectName}.rt,${projectName}.services,${projectName}.ui,${projectName}.sources,${projectName}.tests|
+|repository    |category        |${projectName}.repository|
+|repository    |product         |${projectName}.product|
+
+## Version Numbering ##
+
+In Maven -SNAPSHOT is a lesser version than the associated release version. In OSGI .qualifier is a greater version than the associated base version. This means that OSGI will select SNAPSHOT artifacts over RELEASE artifacts, which is not intended.
+
+As a result the following rule is used
+
+  * Even version numbers represent releases
+  * Odd version numbers represent snapshots
+
+# Features #
+
+  * Features have a base name that is used to identify them within the repository. E.g. 'bt2gv'
+  * Features are internally structured
+
+|**extension**|**Long Name**|**provides**|**requires feature**|**includes feature**|
+|:------------|:------------|:-----------|:-------------------|:-------------------|
+|services     |Services     |programmatic interface|none                |none                |
+|ui           |User Interface|interactive access|services            |none                |
+|rt           |Runtime      |end-user features|none                |ui,services         |
+|sources      |Source Code  |source code lookup|none                |none                |
+|tests        |Deployable tests|tests to run in test environment|test runners,target |rt                  |
+|sdk          |Source Developer Kit|everything except tests|none                | ^tests             |
+
+# Process #
+
+The current process builds a repository site per module, and the product aggregates these modules. Higher modules refer to P2 sites within SVN to obtain their requirements.
+
+Tycho builds are using the tycho 0.16.0 local-dependencies:ignore setting, to avoid the build being polluted by local snapshots lying around.
+
+## Intended process ##
+
+### Features ###
+
+The intended process involves features being built in two stages:
+
+  1. Check-out of all parts from SVN
+> 2. Build in tycho/Jenkins
+> 3. Deploy plugins to nexus OSS with P2
+> 4. Deploy features to SVN with SVN publisher in Jenkins
+
+As part of this process, P2 dependencies can be drawn in from the local nexus.
+
+### Top-level Repos ###
+
+There are two top-level repos:
+
+  * /updates/(release number) contains releases of the TextBE IDE itself
+  * /releases/(release name) contains releases of features to be installed into the IDE
+
+These repositories are created by collecting the individual repos of the features.
